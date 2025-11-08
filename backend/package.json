@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "app for gym training",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kps-243/Motion.git"
+  },
+  "author": "Morgan KPASSI - Yasmine BADAROU - Amir AGEAT JAMLY",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kps-243/Motion/issues"
+  },
+  "homepage": "https://github.com/kps-243/Motion#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
