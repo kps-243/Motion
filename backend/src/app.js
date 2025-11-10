@@ -1,5 +1,6 @@
 const express = require('express'); // call express
-const userRoutes = require('./routes/user')
+const userRoutes = require('./routes/user');
+const gymRoutes = require('./routes/gym');
 const app = express();
 const auth = require('./middlewares/auth');
 
@@ -13,6 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/auth', userRoutes);
+app.use('/api/gym', gymRoutes);
 
 // TODO : Training Part
 app.get('/profile', auth, (req, res) => {
