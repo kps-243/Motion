@@ -41,3 +41,20 @@ exports.login = async (email, password) => {
 
   return { userId: user._id, token };
 };
+
+
+exports.getAllUsers = async () => {
+  return await User.find();
+};
+
+exports.getOneUser = async (id) => {
+  return await User.findById(id);
+};
+
+exports.modifyUser = async (id, data) => {
+  return await User.updateOne({ _id: id }, { ...data, _id: id });
+};
+
+exports.deleteUser = async (id) => {
+  return await User.deleteOne({ _id: id });
+};
