@@ -9,6 +9,7 @@ git clone https://github.com/kps-243/Motion.git
 cd backend
 cp .env.exemple .env
 npm install
+npm install -g nodemon
 nodemon server.js
 ```
 ### Endpoints
