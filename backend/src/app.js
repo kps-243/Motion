@@ -13,6 +13,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// Add route here
 app.use('/api/auth', userRoutes);
 app.use('/api/gym', gymRoutes);
 
