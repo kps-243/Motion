@@ -2,7 +2,12 @@ const gymService = require('../services/gym');
 
 exports.createGym = async (req, res) => {
   try {
-    const gym = await gymService.createGym(req.body);
+    const data = {
+      ...req.body,
+      owner: req.user.id,
+    };
+
+    const gym = await gymService.createGym(data);
     res.status(201).json({ message: 'Salle de sport créée !', gym });
   } catch (error) {
     res.status(400).json({ error });

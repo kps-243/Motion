@@ -1,6 +1,10 @@
 const express = require('express'); // call express
 const userRoutes = require('./routes/user');
 const gymRoutes = require('./routes/gym');
+const equipmentRoutes = require('./routes/equipment');
+const gymEquipmentRoutes = require('./routes/gymEquipment');
+const practiceRoutes = require('./routes/practice');
+
 const app = express();
 const auth = require('./middlewares/auth');
 
@@ -13,9 +17,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// Add route here
 app.use('/api/auth', userRoutes);
 app.use('/api/gym', gymRoutes);
+app.use('/api/equipments', equipmentRoutes);
+app.use('/api/gyms/:gymId/equipments', gymEquipmentRoutes);
+app.use('/api/practice', practiceRoutes);
+
 
 // TODO : Training Part
 app.get('/profile', auth, (req, res) => {
