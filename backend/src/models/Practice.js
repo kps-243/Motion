@@ -17,6 +17,11 @@ const practiceSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
-});
+  gymId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Gym',
+    required: true,
+  },
+}, { timestamps: true });
 
 module.exports = mongoose.model('Practice', practiceSchema);
