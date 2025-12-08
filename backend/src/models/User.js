@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     role: { type: String, enum: Object.values(ROLES), default: ROLES.CUSTOMER},
+    score: { type: Number, default: 0},
     });
 
 userSchema.plugin(uniqueValidator);

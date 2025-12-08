@@ -1,4 +1,5 @@
 const challengeService = require('../services/challenge');
+const badgeService = require('../services/badge');
 
 exports.createChallenge = async (req, res) => {
   try {
@@ -50,9 +51,21 @@ exports.deleteChallenge = async (req, res) => {
 
 exports.completeChallenge = async (req, res) => {
   try {
-    const result = await challengeService.completeChallenge(req.params.id, req.auth.userId);
-    res.status(200).json({ message: "Challenge complété", result });
+    const challenge = await challengeService.completeChallenge(
+        req.params.id,
+        req.auth.userId
+    );
+
+    const newBadges = await badgeService.checkAndAwardBadgesForUser(
+        req.auth.userId
+    );
+
+    res.status(200).json({
+      message: "Challenge complété",
+      challenge,
+      newBadges,
+    });
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ message: error.message });
   }
 };

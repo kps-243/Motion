@@ -5,11 +5,12 @@ const equipmentRoutes = require('./routes/equipment');
 const gymEquipmentRoutes = require('./routes/gymEquipment');
 const practiceRoutes = require('./routes/practice');
 const challengeRoutes = require('./routes/challenge');
+const badgeRoutes = require('./routes/badge');
 
 const app = express();
 const auth = require('./middlewares/auth');
 
-app.use(express.json())
+app.use(express.json());
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -24,7 +25,7 @@ app.use('/api/equipments', equipmentRoutes);
 app.use('/api/gyms/:gymId/equipments', gymEquipmentRoutes);
 app.use('/api/practice', practiceRoutes);
 app.use('/api/challenge', challengeRoutes);
-
+app.use('/api/badges', badgeRoutes);
 
 // TODO : Training Part
 app.get('/profile', auth, (req, res) => {
@@ -33,4 +34,5 @@ app.get('/profile', auth, (req, res) => {
     userId: req.auth.userId,
   });
 });
+
 module.exports = app;
