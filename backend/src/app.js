@@ -6,6 +6,7 @@ const gymEquipmentRoutes = require('./routes/gymEquipment');
 const practiceRoutes = require('./routes/practice');
 const challengeRoutes = require('./routes/challenge');
 const badgeRoutes = require('./routes/badge');
+const challengeSocialRoutes = require('./routes/challengeSocial');
 
 const app = express();
 const auth = require('./middlewares/auth');
@@ -26,6 +27,7 @@ app.use('/api/gyms/:gymId/equipments', gymEquipmentRoutes);
 app.use('/api/practice', practiceRoutes);
 app.use('/api/challenge', challengeRoutes);
 app.use('/api/badges', badgeRoutes);
+app.use('/api/social', challengeSocialRoutes);
 
 // TODO : Training Part
 app.get('/profile', auth, (req, res) => {

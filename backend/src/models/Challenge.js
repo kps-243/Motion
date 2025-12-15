@@ -26,6 +26,14 @@ const challengeSchema = new mongoose.Schema({
     required: true,
   },
 
+  participants: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    default: [],
+  }],
+
+  isCollaborative: { type: Boolean, default: true },
+
   completedBy: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
