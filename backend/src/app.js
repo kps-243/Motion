@@ -7,6 +7,7 @@ const practiceRoutes = require('./routes/practice');
 const challengeRoutes = require('./routes/challenge');
 const badgeRoutes = require('./routes/badge');
 const challengeSocialRoutes = require('./routes/challengeSocial');
+const leaderboardRoutes = require('./routes/leaderboard');
 
 const app = express();
 const auth = require('./middlewares/auth');
@@ -28,6 +29,7 @@ app.use('/api/practice', practiceRoutes);
 app.use('/api/challenge', challengeRoutes);
 app.use('/api/badges', badgeRoutes);
 app.use('/api/social', challengeSocialRoutes);
+app.use('/api/leaderboard', leaderboardRoutes);
 
 // TODO : Training Part
 app.get('/profile', auth, (req, res) => {
