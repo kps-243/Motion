@@ -4,7 +4,6 @@ exports.createGym = async (req, res) => {
   try {
     const data = {
       ...req.body,
-      owner: req.user.id,
     };
 
     const gym = await gymService.createGym(data);
